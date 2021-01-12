@@ -46,7 +46,7 @@ Follow these guidelines for committing:
 
 * **Important**: Be sure to push your codebase to GitHub and **NOT** your built and deployed code. Ensure this happens by following the above instructions and using the `gh-pages` branch to host the deployed application's code.
 
-## Submission on BCS
+## Submission on * BCS
 
 You are required to submit the following:
 
