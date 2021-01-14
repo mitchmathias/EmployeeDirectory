@@ -1,11 +1,8 @@
-import React from 'react';
-APIkey = 'EO7P-F2AH-FZ4W-UYWU';
+import axios from 'axios';
 
-$.ajax({
-    url: 'https://randomuser.me/api/?inc=gender,name,email,cell,picture,dob&results=20',
-    dataType: 'json',
-    success: function(data) {
-      console.log(data);
-    }
-  });
-        
+
+export default {
+  getEmployees: function () {
+    return axios.get("https://randomuser.me/api/?inc=gender,name,email,cell,picture,dob&results=20");
+  }
+};

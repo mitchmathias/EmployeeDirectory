@@ -1,40 +1,67 @@
-import React from 'react';
-import EmployeeCard from './components/EmployeeCard/EmployeeCard'
-import employees from './employees.json'
+import React, { Component } from 'react';
+import EmployeeTable from './components/EmployeeTable.js'
+import Search from './components/Search.js'
 import Wrapper from './components/Wrapper/Wrapper';
 import Title from './components/Title/title';
+import API from './utils/API'
 
-function App() {
-  return (
-    <Wrapper>
-      <Title>Employees</Title>
-      <EmployeeCard
-        picture={employees[0].picture.large}
-        name={employees[0].name}
-        email={employees[0].email}
-        cell={employees[0].cell}
-        gender={employees[0].gender}
-        dob={employees[0].dob}
-      />
-       <EmployeeCard
-       picture={employees[1].picture.large}
-        name={employees[1].name}
-        email={employees[1].email}
-        cell={employees[1].cell}
-        gender={employees[1].gender}
-        dob={employees[1].dob}
-      />
-       <EmployeeCard
-       picture={employees[2].picture.large}
-        name={employees[2].name}
-        email={employees[2].email}
-        cell={employees[2].cell}
-        gender={employees[2].gender}
-        dob={employees[2].dob}
-      />
-    </Wrapper>
 
-  );
+class App extends Component {
+
+  state= {
+    search: "",
+    employees: [],
+    filtEmployees: [],
+  }
+
+  componentDidMount() {
+    this.getEmp()
+  }
+
+  handleInputChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    this.setState({[name]: value}, function(){
+      const searched = this.state.search.toLowerCase()
+      const filteredEmp = this.state.employees.filter(emp => {
+        let fullName = `${emp.name.first} ${emp.name.last}`
+        fullName = fullName.toLowerCase()
+        return fullName.includes(searched)
+      })
+      this.setState({filtEmployees: filteredEmp})
+    })
+  }
+
+  keyPress = (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault()
+      }
+  }
+
+  getEmp = () => {
+    API.getEmployees().then(res => {
+      console.log(res.data.results)
+      this.setState({employees: res.data.results, filtEmployees: res.data.results})
+    })
+  }
+
+
+  render() {
+    return (
+      <Wrapper>
+        <Title>Employees</Title>
+        <Search 
+        search={this.state.search} 
+        keyPress={this.keyPress} 
+        handleInputChange= {this.handleInputChange}/>
+        <EmployeeTable 
+          filtEmployees ={this.state.filtEmployees}
+        />
+
+      </Wrapper>
+
+    );
+  }
 }
 
 export default App;
