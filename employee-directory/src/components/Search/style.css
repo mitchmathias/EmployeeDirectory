@@ -1,0 +1,12 @@
+.navbar {
+    width: 100%;
+    align-items: center;
+}
+.form{
+    align-self: center;
+    width: 25%;
+}
+
+.searchbar {
+    align-items: center;
+}

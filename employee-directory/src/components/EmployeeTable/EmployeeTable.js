@@ -1,8 +1,10 @@
 import React from 'react';
+import './style.css'
+
 
 function EmployeeTable(props) {
     return (
-        <table>
+        <table className="table">
             <thead>
                 <tr>
                     <th>Picture</th>

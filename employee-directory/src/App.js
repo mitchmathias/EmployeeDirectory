@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import EmployeeTable from './components/EmployeeTable.js'
-import Search from './components/Search.js'
+import EmployeeTable from './components/EmployeeTable/EmployeeTable'
+import Search from './components/Search/Search'
 import Wrapper from './components/Wrapper/Wrapper';
 import Title from './components/Title/title';
+import Footer from './components/Footer/Footer'
 import API from './utils/API'
 
 
@@ -57,6 +58,7 @@ class App extends Component {
         <EmployeeTable 
           filtEmployees ={this.state.filtEmployees}
         />
+        <Footer />
 
       </Wrapper>
 
