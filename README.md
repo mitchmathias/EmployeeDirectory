@@ -19,3 +19,6 @@ GitHub: https://github.com/mitchmathias
 
 ## Images
 
+![screenshot](employee-directory/public/Screenshot.png)
+
+![screenshot](employee-directory/public/Screenshot2.png)
