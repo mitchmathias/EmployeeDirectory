@@ -6,11 +6,11 @@ A website that deisplays information about Employees of a company. The App uses 
 
 ## Usage 
 
-Visit the Website!
+Visit the Website!  https://mitchmathias.github.io/EmployeeDirectory/
 
 ## Contributions 
 
-Mitch MAthias
+Mitch Mathias
 
 ## Questions 
 
